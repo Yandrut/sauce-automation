@@ -5,7 +5,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class DriverWaiter {
+public final class DriverWaiter {
     public static final Duration VISIBILITY_TIMEOUT_SECONDS = Duration.ofSeconds(10L);
     private static final WebDriverWait wait = new WebDriverWait(DriverProvider.getDriver(), VISIBILITY_TIMEOUT_SECONDS);
 
