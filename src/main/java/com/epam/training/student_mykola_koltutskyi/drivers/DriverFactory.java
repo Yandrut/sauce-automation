@@ -9,7 +9,7 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-public class DriverFactory {
+public final class DriverFactory {
 
     private DriverFactory() {}
 
