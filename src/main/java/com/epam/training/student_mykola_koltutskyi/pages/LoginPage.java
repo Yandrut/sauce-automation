@@ -29,12 +29,6 @@ public class LoginPage extends AbstractPage {
         PageFactory.initElements(driver,this);
     }
 
-    public LoginPage navigateToUrl(String url) {
-        log.info("Navigating to the url: {} ", url);
-        driver.get(url);
-        return this;
-    }
-
     public void typeCredentials(String username, String password) {
         log.info("Typing credentials: | {} | {} |", username, password);
         Actions actions = new Actions(driver);
