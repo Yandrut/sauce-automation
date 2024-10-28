@@ -4,8 +4,8 @@ import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
 import com.epam.training.student_mykola_koltutskyi.utils.TestListener;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
 
 @CucumberOptions(
@@ -15,18 +15,18 @@ import org.testng.annotations.*;
         tags = "@Smoke")
 @Listeners(TestListener.class)
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
-    private static final Logger logger = LoggerFactory.getLogger(RunCucumberTest.class);
+    private static final Logger logger = LogManager.getLogger(RunCucumberTest.class);
 
     @BeforeMethod
     public void initializeDriver() {
-        logger.debug("Initializing driver \n");
+        logger.debug("Initializing driver");
         DriverProvider.initializeDriver();
         DriverProvider.getDriver();
     }
 
     @AfterMethod
     public void closeDriver() {
-        logger.debug("Closing browser \n");
+        logger.debug("Closing browser");
         DriverProvider.quit();
     }
 

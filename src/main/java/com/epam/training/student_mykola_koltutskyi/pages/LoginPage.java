@@ -4,8 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class LoginPage extends AbstractPage {
 
@@ -21,7 +21,7 @@ public class LoginPage extends AbstractPage {
     @FindBy(css = "div.error-message-container.error > h3")
     private WebElement errorMessage;
 
-    private static final Logger log = LoggerFactory.getLogger(LoginPage.class);
+    private static final Logger log = LogManager.getLogger(LoginPage.class);
     private final WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -37,6 +37,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public void typeCredentials(String username, String password) {
+        log.info("Typing credentials: | {} | {} |", username, password);
         Actions actions = new Actions(driver);
         actions.sendKeys(usernameField, username)
                 .sendKeys(passwordField, password)
@@ -72,6 +73,8 @@ public class LoginPage extends AbstractPage {
     }
 
     public String getTitle() {
-        return driver.getTitle();
+        var title = driver.getTitle();
+        log.info("Actual page title is: {}", title);
+        return title;
     }
 }
