@@ -11,29 +11,18 @@ public final class DriverProvider {
 
     private DriverProvider() {}
 
-    public static void initializeDriver() {
-        if (Objects.isNull(getDriver())) {
-            BrowserType browser = ConfigFactory.getConfig().browser();
-            setDriver(DriverFactory.getDriver(browser));
+    public static WebDriver getDriver() {
+        if (Objects.isNull(threadLocalDriver.get())) {
+            BrowserType browserType = ConfigFactory.getConfig().browser();
+            threadLocalDriver.set(DriverFactory.getBrowsersDriver(browserType));
         }
+        return threadLocalDriver.get();
     }
 
     public static void quit() {
         if (Objects.nonNull(getDriver())) {
-            getDriver().quit();
-            remove();
+            threadLocalDriver.get().quit();
+            threadLocalDriver.remove();
         }
-    }
-
-    public static WebDriver getDriver() {
-        return threadLocalDriver.get();
-    }
-
-    public static void setDriver(WebDriver driver) {
-        threadLocalDriver.set(driver);
-    }
-
-    public static void remove() {
-        threadLocalDriver.remove();
     }
 }

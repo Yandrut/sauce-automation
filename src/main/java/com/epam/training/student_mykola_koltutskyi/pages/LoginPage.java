@@ -1,5 +1,6 @@
 package com.epam.training.student_mykola_koltutskyi.pages;
 
+import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -22,18 +23,10 @@ public class LoginPage extends AbstractPage {
     private WebElement errorMessage;
 
     private static final Logger log = LogManager.getLogger(LoginPage.class);
-    private final WebDriver driver;
+    private final WebDriver driver = DriverProvider.getDriver();
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
+    public LoginPage() {
         PageFactory.initElements(driver,this);
-        this.driver = driver;
-    }
-
-    public LoginPage navigateToUrl(String url) {
-        log.info("Navigating to the url: {} ", url);
-        driver.get(url);
-        return this;
     }
 
     public void typeCredentials(String username, String password) {
