@@ -8,17 +8,21 @@
   <packaging>jar</packaging>
 
   <name>sauce-automation</name>
+  <description>Automated tests for https://saucedemo.com website.</description>
   <url>https://maven.apache.org</url>
 
   <properties>
     <java.version>8</java.version>
+    <cucumber.testng.version>7.20.1</cucumber.testng.version>
     <owner.version>1.0.12</owner.version>
     <log4j.version>2.22.0</log4j.version>
-    <awaitility.version>4.2.0</awaitility.version>
+    <apache-commons.version>2.15.1</apache-commons.version>
     <selenium.version>4.14.1</selenium.version>
     <lombok.version>1.18.20</lombok.version>
     <assertJ.version>3.24.2</assertJ.version>
     <surefire.version>3.5.1</surefire.version>
+    <cucumber.version>7.20.1</cucumber.version>
+    <cucumber-plugin.version>7.18.1</cucumber-plugin.version>
     <mvn.compiler.version>3.8.1</mvn.compiler.version>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
@@ -30,7 +34,7 @@
       <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-bom</artifactId>
-        <version>7.20.1</version>
+        <version>${cucumber.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -39,27 +43,19 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>2.0.16</version>
-      <type>pom</type>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.15.1</version>
+      <version>${apache-commons.version}</version>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-testng</artifactId>
-      <version>7.20.1</version>
+      <version>${cucumber.testng.version}</version>
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-plugin</artifactId>
-      <version>7.18.1</version>
+      <version>${cucumber-plugin.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -71,11 +67,6 @@
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
       <version>${selenium.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.awaitility</groupId>
-      <artifactId>awaitility</artifactId>
-      <version>${awaitility.version}</version>
     </dependency>
     <dependency>
       <groupId>org.aeonbits.owner</groupId>
@@ -103,16 +94,6 @@
       <artifactId>log4j-core</artifactId>
       <version>${log4j.version}</version>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>2.0.16</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <version>2.20.0</version>
-    </dependency>
   </dependencies>
   <build>
     <plugins>
@@ -128,10 +109,8 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.1</version>
+        <version>${surefire.version}</version>
         <configuration>
-          <parallel>methods</parallel>
-          <threadCount>3</threadCount>
           <suiteXmlFiles>
             <suiteXmlFile>testng-smoke.xml</suiteXmlFile>
           </suiteXmlFiles>

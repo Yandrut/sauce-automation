@@ -1,11 +1,11 @@
 package com.epam.training.student_mykola_koltutskyi.utils;
 
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
 import org.apache.commons.io.FileUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
@@ -16,7 +16,7 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class TestListener implements ITestListener {
-    private static final Logger log = LoggerFactory.getLogger(TestListener.class);
+    private static final Logger log = LogManager.getLogger(TestListener.class);
 
     @Override
     public void onTestFailure(ITestResult result) {
