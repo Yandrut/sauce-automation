@@ -5,6 +5,7 @@ Chrome,
 Firefox`
 
 Browser environment by default is set to Chrome.
+To run the default test suite with Chrome Driver run `mvn clean test`
 
 To run the tests with Firefox browser use the following command:
-`mvn clean test -dbrowser=FIREFOX` or `mvn test -dbrowser=FIREFOX`
+`mvn clean test -Dbrowser=FIREFOX` or `mvn test -Dbrowser=FIREFOX`
