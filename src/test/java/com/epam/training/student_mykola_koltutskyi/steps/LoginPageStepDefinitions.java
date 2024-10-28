@@ -1,6 +1,5 @@
 package com.epam.training.student_mykola_koltutskyi.steps;
 
-import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
 import com.epam.training.student_mykola_koltutskyi.pages.LoginPage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -12,13 +11,11 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @Slf4j
 public class LoginPageStepDefinitions {
-    private static final String BASE_URL = "https://saucedemo.com";
-    private final LoginPage page = new LoginPage(DriverProvider.getDriver());
+    private final LoginPage page = new LoginPage();
 
     @Given("I enter login credentials with username {string} and password {string}")
     public void iEnterLoginCredentialsWithUsernameAndPassword(String username, String password) {
-        page.navigateToUrl(BASE_URL)
-                .typeCredentials(username, password);
+        page.typeCredentials(username, password);
     }
 
     @When("I clear the username input")

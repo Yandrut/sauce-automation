@@ -9,23 +9,26 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.*;
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = {
+                "src/test/resources/features/Empty_Password_Error.feature",
+                "src/test/resources/features/Empty_Username_Error.feature",
+                "src/test/resources/features/Successful_Login.feature"
+        },
         glue = "com/epam/training/student_mykola_koltutskyi/steps",
         plugin = { "html:target/cucumber-Report.html", "json:target/report.json"},
         tags = "@Smoke")
 @Listeners(TestListener.class)
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
     private static final Logger logger = LogManager.getLogger(RunCucumberTest.class);
+    private static final String BASE_URL = "https://saucedemo.com";
 
     @BeforeMethod
-    public void initializeDriver() {
-        logger.debug("Initializing driver");
-        DriverProvider.initializeDriver();
-        DriverProvider.getDriver();
+    public void openBrowser() {
+        DriverProvider.getDriver().get(BASE_URL);
     }
 
     @AfterMethod
-    public void closeDriver() {
+    public void quitBrowser() {
         logger.debug("Closing browser");
         DriverProvider.quit();
     }

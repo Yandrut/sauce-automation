@@ -8,7 +8,7 @@ public final class FirefoxManager {
 
     private FirefoxManager() {}
 
-    public static WebDriver getDriver() {
+    public static WebDriver getFirefoxDriver() {
         FirefoxOptions options = new FirefoxOptions();
         options.setAcceptInsecureCerts(true);
         options.addArguments("--disable-notifications");

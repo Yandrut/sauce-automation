@@ -8,7 +8,7 @@ public final class ChromeManager {
 
     private ChromeManager(){}
 
-    public static WebDriver getDriver() {
+    public static WebDriver getChromeDriver() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");

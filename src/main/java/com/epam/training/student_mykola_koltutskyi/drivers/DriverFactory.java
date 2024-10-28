@@ -17,11 +17,11 @@ public final class DriverFactory {
             new EnumMap<>(BrowserType.class);
 
     static {
-        ENUM_MAP.put(BrowserType.CHROME, ChromeManager::getDriver);
-        ENUM_MAP.put(BrowserType.FIREFOX, FirefoxManager::getDriver);
+        ENUM_MAP.put(BrowserType.CHROME, ChromeManager::getChromeDriver);
+        ENUM_MAP.put(BrowserType.FIREFOX, FirefoxManager::getFirefoxDriver);
     }
 
-    public static WebDriver getDriver(BrowserType browserType) {
+    public static WebDriver getBrowsersDriver(BrowserType browserType) {
         return ENUM_MAP.get(browserType).get();
     }
 }
