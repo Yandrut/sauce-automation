@@ -1,17 +1,20 @@
 package com.epam.training.student_mykola_koltutskyi.steps;
 
 import com.epam.training.student_mykola_koltutskyi.pages.LoginPage;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import lombok.extern.slf4j.Slf4j;
-
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-@Slf4j
 public class LoginPageStepDefinitions {
-    private final LoginPage page = new LoginPage();
+    private LoginPage page;
+
+    @Before
+    public void openBrowser() {
+        page = new LoginPage();
+    }
 
     @Given("I enter login credentials with username {string} and password {string}")
     public void iEnterLoginCredentialsWithUsernameAndPassword(String username, String password) {
@@ -36,12 +39,16 @@ public class LoginPageStepDefinitions {
     @Then("Verify that the error message appears {}")
     public void verifyThatTheErrorMessageAppears(String expectedErrorMessage) {
         String actualErrorMessage = page.getErrorMessage();
-        assertThat(actualErrorMessage).isEqualTo(expectedErrorMessage);
+        assertThat(actualErrorMessage)
+                .as("Expected error message to appear")
+                .isEqualTo(expectedErrorMessage);
     }
 
     @Then("Verify that page name is valid {}")
     public void verifyThatPageNameIsValid(String expectedPageName) {
         String actualPageName = page.getTitle();
-        assertThat(actualPageName).isEqualTo(expectedPageName);
+        assertThat(actualPageName)
+                .as("Expected page name to match")
+                .isEqualTo(expectedPageName);
     }
 }
