@@ -1,7 +1,7 @@
 Feature: UC-3 Successful login
   @Smoke
-  Scenario Outline: Passing valid credentials
-    Given I type the login credentials <username> <password>
+  Scenario Outline: Redirecting to the new page after passing valid credentials
+    Given I enter login credentials with username "<username>" and password "<password>"
     When I click on the login button
     Then Verify that page name is valid <name>
 
