@@ -3,10 +3,7 @@ package com.epam.training.student_mykola_koltutskyi.steps;
 import com.epam.training.student_mykola_koltutskyi.pages.LoginPage;
 import com.epam.training.student_mykola_koltutskyi.utils.TestListener;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
+import io.cucumber.java.en.*;
 import org.testng.annotations.Listeners;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -42,7 +39,7 @@ public class LoginPageStepDefinitions {
 
     @Then("Verify that the error message appears {}")
     public void verifyThatTheErrorMessageAppears(String expectedErrorMessage) {
-        String actualErrorMessage = page.getErrorMessage();
+        var actualErrorMessage = page.getErrorMessage();
         assertThat(actualErrorMessage)
                 .as("Expected error message to appear")
                 .isEqualTo(expectedErrorMessage);
@@ -50,7 +47,7 @@ public class LoginPageStepDefinitions {
 
     @Then("Verify that page name is valid {}")
     public void verifyThatPageNameIsValid(String expectedPageName) {
-        String actualPageName = page.getTitle();
+        var actualPageName = page.getTitle();
         assertThat(actualPageName)
                 .as("Expected page name to match")
                 .isEqualTo(expectedPageName);

@@ -13,6 +13,7 @@ public final class FirefoxManager {
         options.setAcceptInsecureCerts(true);
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
-        return new FirefoxDriver();
+        options.addArguments("--start-maximised");
+        return new FirefoxDriver(options);
     }
 }
