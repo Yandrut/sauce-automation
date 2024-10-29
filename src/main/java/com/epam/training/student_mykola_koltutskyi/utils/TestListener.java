@@ -21,7 +21,7 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         saveScreenshot();
-        log.info("Screenshot taken... \n Test name {} ", result.getTestName());
+        log.info("Screenshot taken... Test name {} ", result.getTestName());
     }
 
     public void saveScreenshot() {
@@ -33,7 +33,7 @@ public class TestListener implements ITestListener {
                     new File(".//target/screenshots/" + getCurrentTime() + ".png"));
 
         } catch (IOException e) {
-          e.getLocalizedMessage();
+          log.error(e.getLocalizedMessage());
         }
     }
 

@@ -4,7 +4,6 @@ import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -23,10 +22,11 @@ public class LoginPage extends AbstractPage {
     private WebElement errorMessage;
 
     private static final Logger log = LogManager.getLogger(LoginPage.class);
-    private final WebDriver driver = DriverProvider.getDriver();
+    private final WebDriver driver;
 
     public LoginPage() {
-        PageFactory.initElements(driver,this);
+        super();
+        driver = DriverProvider.getDriver();
     }
 
     public void typeCredentials(String username, String password) {
@@ -36,21 +36,20 @@ public class LoginPage extends AbstractPage {
     }
 
     public void clearPasswordInput() {
-        Actions actions = new Actions(driver);
-        actions.doubleClick(passwordField)
-                .sendKeys(Keys.BACK_SPACE)
-                .build()
-                .perform();
-        log.info("Password input cleared");
+        clearInputWithActions(passwordField, "Password");
     }
 
     public void clearUsernameInput() {
-        Actions actions = new Actions(driver);
-        actions.doubleClick(usernameField)
+        clearInputWithActions(usernameField, "Username");
+    }
+
+    private void clearInputWithActions(WebElement target, String inputName) {
+        var actions = new Actions(driver);
+        actions.doubleClick(target)
                 .sendKeys(Keys.BACK_SPACE)
                 .build()
                 .perform();
-        log.info("Username input cleared");
+        log.info("{} input cleared", inputName);
     }
 
     public void clickOnLoginButton() {
