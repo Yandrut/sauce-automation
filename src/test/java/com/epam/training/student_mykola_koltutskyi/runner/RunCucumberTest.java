@@ -25,7 +25,7 @@ public class RunCucumberTest extends AbstractTestNGCucumberTests {
         DriverProvider.getDriver().get(BASE_URL);
     }
 
-    @AfterMethod
+    @AfterMethod(alwaysRun = true)
     public void closeBrowser() {
         DriverProvider.quit();
     }

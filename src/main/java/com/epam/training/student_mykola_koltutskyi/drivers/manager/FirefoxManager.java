@@ -10,10 +10,8 @@ public final class FirefoxManager {
 
     public static WebDriver getFirefoxDriver() {
         FirefoxOptions options = new FirefoxOptions();
-        options.setAcceptInsecureCerts(true);
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
-        options.addArguments("--start-maximised");
         return new FirefoxDriver(options);
     }
 }

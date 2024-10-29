@@ -19,7 +19,8 @@ public final class DriverFactory {
         } else {
             throw new RuntimeException("Invalid name of the browser");
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+        driver.manage().window().maximize();
         return driver;
     }
 }

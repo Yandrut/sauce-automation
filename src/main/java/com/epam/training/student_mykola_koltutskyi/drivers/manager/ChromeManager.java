@@ -12,7 +12,6 @@ public final class ChromeManager {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-popup-blocking");
-        options.addArguments("--start-maximised");
         return new ChromeDriver(options);
     }
 }
