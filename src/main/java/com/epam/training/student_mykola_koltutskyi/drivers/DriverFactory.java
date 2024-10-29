@@ -1,27 +1,25 @@
 package com.epam.training.student_mykola_koltutskyi.drivers;
 
 import org.openqa.selenium.WebDriver;
-import com.epam.training.student_mykola_koltutskyi.configuration.BrowserType;
 import com.epam.training.student_mykola_koltutskyi.drivers.manager.ChromeManager;
 import com.epam.training.student_mykola_koltutskyi.drivers.manager.FirefoxManager;
-
-import java.util.EnumMap;
-import java.util.Map;
-import java.util.function.Supplier;
+import java.time.Duration;
 
 public final class DriverFactory {
 
     private DriverFactory() {}
 
-    private static final Map<BrowserType, Supplier<WebDriver>> ENUM_MAP =
-            new EnumMap<>(BrowserType.class);
-
-    static {
-        ENUM_MAP.put(BrowserType.CHROME, ChromeManager::getChromeDriver);
-        ENUM_MAP.put(BrowserType.FIREFOX, FirefoxManager::getFirefoxDriver);
-    }
-
-    public static WebDriver getBrowsersDriver(BrowserType browserType) {
-        return ENUM_MAP.get(browserType).get();
+    public static WebDriver getBrowsersDriver() {
+        var browserType = System.getProperty("browser", "chrome");
+        WebDriver driver;
+        if (browserType.equalsIgnoreCase("chrome")) {
+            driver = ChromeManager.getChromeDriver();
+        } else if (browserType.equalsIgnoreCase("firefox")) {
+            driver = FirefoxManager.getFirefoxDriver();
+        } else {
+            throw new RuntimeException("Invalid name of the browser");
+        }
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        return driver;
     }
 }
