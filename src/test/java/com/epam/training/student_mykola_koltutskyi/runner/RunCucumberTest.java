@@ -1,6 +1,7 @@
 package com.epam.training.student_mykola_koltutskyi.runner;
 
 import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
+import com.epam.training.student_mykola_koltutskyi.utils.DataReader;
 import com.epam.training.student_mykola_koltutskyi.utils.TestListener;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
@@ -17,10 +18,11 @@ import org.testng.annotations.*;
         tags = "@Smoke")
 @Listeners(TestListener.class)
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
+    private static final String BASE_URL = DataReader.getData("test.data.base_URL");
 
     @BeforeMethod
     public void openBrowser() {
-        DriverProvider.getDriver().get("https://saucedemo.com");
+        DriverProvider.getDriver().get(BASE_URL);
     }
 
     @AfterMethod

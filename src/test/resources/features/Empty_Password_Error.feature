@@ -1,4 +1,4 @@
-Feature: UC-2 Login form with empty password input
+Feature:  UC-2 Login form with empty password input
   @Smoke
   Scenario Outline: Display of required error message when the password input is empty
     Given I enter login credentials with username "<username>" and password "<password>"

@@ -1,9 +1,6 @@
 package com.epam.training.student_mykola_koltutskyi.drivers;
 
-import com.epam.training.student_mykola_koltutskyi.configuration.BrowserType;
 import org.openqa.selenium.WebDriver;
-import com.epam.training.student_mykola_koltutskyi.configuration.ConfigFactory;
-
 import java.util.Objects;
 
 public final class DriverProvider {
@@ -13,14 +10,13 @@ public final class DriverProvider {
 
     public static WebDriver getDriver() {
         if (Objects.isNull(threadLocalDriver.get())) {
-            BrowserType browserType = ConfigFactory.getConfig().browser();
-            threadLocalDriver.set(DriverFactory.getBrowsersDriver(browserType));
+            threadLocalDriver.set(DriverFactory.getBrowsersDriver());
         }
         return threadLocalDriver.get();
     }
 
     public static void quit() {
-        if (Objects.nonNull(getDriver())) {
+        if (Objects.nonNull(threadLocalDriver.get())) {
             threadLocalDriver.get().quit();
             threadLocalDriver.remove();
         }
