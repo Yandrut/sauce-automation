@@ -10,7 +10,7 @@ public final class DriverProvider {
 
     public static WebDriver getDriver() {
         if (Objects.isNull(threadLocalDriver.get())) {
-            threadLocalDriver.set(DriverFactory.getBrowsersDriver());
+            threadLocalDriver.set(DriverFactory.createDriver());
         }
         return threadLocalDriver.get();
     }

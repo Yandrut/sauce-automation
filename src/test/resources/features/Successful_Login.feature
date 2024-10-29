@@ -1,4 +1,5 @@
-Feature:   UC-3 Successful login
+Feature: UC-3 Successful login
+
   @Smoke
   Scenario Outline: Redirecting to the new page after passing valid credentials
     Given I enter login credentials with username "<username>" and password "<password>"

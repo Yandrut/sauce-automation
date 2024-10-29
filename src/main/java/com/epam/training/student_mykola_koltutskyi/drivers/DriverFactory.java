@@ -9,7 +9,7 @@ public final class DriverFactory {
 
     private DriverFactory() {}
 
-    public static WebDriver getBrowsersDriver() {
+    public static WebDriver createDriver() {
         var browserType = System.getProperty("browser", "chrome");
         WebDriver driver;
         if (browserType.equalsIgnoreCase("chrome")) {

@@ -1,4 +1,5 @@
-Feature:  UC-1 Login form with empty username input
+Feature: UC-1 Login form with empty username input
+
   @Smoke
   Scenario Outline: Display of required error message when the username input is empty
     Given  I enter login credentials with username "<username>" and password "<password>"

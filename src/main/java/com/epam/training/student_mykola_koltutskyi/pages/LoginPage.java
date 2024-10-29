@@ -21,8 +21,8 @@ public class LoginPage extends AbstractPage {
     @FindBy(css = "div.error-message-container.error > h3")
     private WebElement errorMessage;
 
-    private static final Logger log = LogManager.getLogger(LoginPage.class);
     private final WebDriver driver;
+    private static final Logger log = LogManager.getLogger(LoginPage.class);
 
     public LoginPage() {
         super();
