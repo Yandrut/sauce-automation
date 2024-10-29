@@ -1,18 +1,22 @@
 package com.epam.training.student_mykola_koltutskyi.steps;
 
 import com.epam.training.student_mykola_koltutskyi.pages.LoginPage;
+import com.epam.training.student_mykola_koltutskyi.utils.TestListener;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.annotations.Listeners;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
+@Listeners(TestListener.class)
 public class LoginPageStepDefinitions {
     private LoginPage page;
 
     @Before
-    public void openBrowser() {
+    public void initializePageObject() {
         page = new LoginPage();
     }
 

@@ -8,22 +8,20 @@
   <packaging>jar</packaging>
 
   <name>sauce-automation</name>
-  <description>Automated tests for https://saucedemo.com website.</description>
+  <description>Automated tests for https://saucedemo.com website</description>
   <url>https://maven.apache.org</url>
 
   <properties>
-    <java.version>8</java.version>
     <cucumber.testng.version>7.20.1</cucumber.testng.version>
     <owner.version>1.0.12</owner.version>
     <log4j.version>2.22.0</log4j.version>
     <apache-commons.version>2.15.1</apache-commons.version>
     <selenium.version>4.14.1</selenium.version>
-    <lombok.version>1.18.20</lombok.version>
     <assertJ.version>3.24.2</assertJ.version>
     <surefire.version>3.5.1</surefire.version>
     <cucumber.version>7.20.1</cucumber.version>
     <cucumber-plugin.version>7.18.1</cucumber-plugin.version>
-    <mvn.compiler.version>3.8.1</mvn.compiler.version>
+    <maven.compiler.version>3.8.1</maven.compiler.version>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -74,11 +72,6 @@
       <version>${owner.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-    </dependency>
-    <dependency>
       <groupId>org.assertj</groupId>
       <artifactId>assertj-core</artifactId>
       <version>${assertJ.version}</version>
@@ -100,7 +93,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${mvn.compiler.version}</version>
+        <version>${maven.compiler.version}</version>
         <configuration>
           <source>16</source>
           <target>16</target>

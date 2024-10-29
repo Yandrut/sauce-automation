@@ -4,7 +4,6 @@ import com.epam.training.student_mykola_koltutskyi.drivers.DriverProvider;
 import com.epam.training.student_mykola_koltutskyi.utils.TestListener;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
-
 import org.testng.annotations.*;
 
 @CucumberOptions(
