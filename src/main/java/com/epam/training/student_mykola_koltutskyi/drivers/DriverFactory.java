@@ -1,9 +1,9 @@
 package com.epam.training.student_mykola_koltutskyi.drivers;
 
+import com.epam.training.student_mykola_koltutskyi.exception.DriverNotSupportedException;
 import org.openqa.selenium.WebDriver;
 import com.epam.training.student_mykola_koltutskyi.drivers.manager.ChromeManager;
 import com.epam.training.student_mykola_koltutskyi.drivers.manager.FirefoxManager;
-import java.time.Duration;
 
 public final class DriverFactory {
 
@@ -17,9 +17,8 @@ public final class DriverFactory {
         } else if (browserType.equalsIgnoreCase("firefox")) {
             driver = FirefoxManager.getFirefoxDriver();
         } else {
-            throw new RuntimeException("Invalid name of the browser");
+            throw new DriverNotSupportedException("Provided driver is not supported");
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
         driver.manage().window().maximize();
         return driver;
     }
