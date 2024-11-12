@@ -53,7 +53,7 @@ public class LoginPage extends AbstractPage {
     }
 
     public void clickOnLoginButton() {
-        loginButton.submit();
+        loginButton.click();
         log.info("Clicking on login button");
     }
 
