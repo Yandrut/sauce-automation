@@ -37,7 +37,7 @@ public class LoginPageStepDefinitions {
         page.clickOnLoginButton();
     }
 
-    @Then("Verify that the error message appears {}")
+    @Then("Verify that the error message appears {string}")
     public void verifyThatTheErrorMessageAppears(String expectedErrorMessage) {
         var actualErrorMessage = page.getErrorMessage();
         assertThat(actualErrorMessage)
@@ -45,7 +45,7 @@ public class LoginPageStepDefinitions {
                 .isEqualTo(expectedErrorMessage);
     }
 
-    @Then("Verify that page name is valid {}")
+    @Then("Verify that page name is valid {string}")
     public void verifyThatPageNameIsValid(String expectedPageName) {
         var actualPageName = page.getTitle();
         assertThat(actualPageName)
