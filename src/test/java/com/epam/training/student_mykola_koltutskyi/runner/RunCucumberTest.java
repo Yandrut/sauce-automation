@@ -5,6 +5,7 @@ import com.epam.training.student_mykola_koltutskyi.utils.DataReader;
 import com.epam.training.student_mykola_koltutskyi.utils.TestListener;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
 @CucumberOptions(
@@ -22,7 +23,8 @@ public class RunCucumberTest extends AbstractTestNGCucumberTests {
 
     @BeforeMethod
     public void openBrowser() {
-        DriverProvider.getDriver().get(BASE_URL);
+        WebDriver driver = DriverProvider.getDriver();
+        driver.get(BASE_URL);
     }
 
     @AfterMethod(alwaysRun = true)
