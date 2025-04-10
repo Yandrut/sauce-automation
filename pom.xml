@@ -15,7 +15,7 @@
     <cucumber.testng.version>7.20.1</cucumber.testng.version>
     <log4j.version>2.22.0</log4j.version>
     <apache-commons.version>2.15.1</apache-commons.version>
-    <selenium.version>4.14.1</selenium.version>
+    <selenium.version>4.26.0</selenium.version>
     <assertJ.version>3.24.2</assertJ.version>
     <surefire.version>3.5.1</surefire.version>
     <cucumber.version>7.20.1</cucumber.version>

@@ -16,8 +16,9 @@ public final class DriverProvider {
     }
 
     public static void quit() {
-        if (Objects.nonNull(threadLocalDriver.get())) {
-            threadLocalDriver.get().quit();
+        WebDriver driver = threadLocalDriver.get();
+        if (Objects.nonNull(driver)) {
+            driver.quit();
             threadLocalDriver.remove();
         }
     }

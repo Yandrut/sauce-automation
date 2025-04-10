@@ -5,7 +5,7 @@ Feature: UC-2 Login form with empty password input
     Given I enter login credentials with username "<username>" and password "<password>"
     When I clear the password input
     And I click on the login button
-    Then Verify that the error message appears <error>
+    Then Verify that the error message appears "<error>"
 
     Examples:
       | username                | password     | error                              |
